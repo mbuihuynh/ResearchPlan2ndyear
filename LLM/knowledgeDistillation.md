@@ -188,6 +188,10 @@ Tools:Toolformer: **Language Models Can Teach Themselves to Use Tools** (https:/
 ### Product Requirement Development LLM Application
 
 - Teacher: chatGPT
-- Student: LLama-7B
+- Student: LLama 3.2 1B/3B/7B
 - Distillation: Supervised Fine-Tuning
 - Ref **Paper**: PMC-LLaMA: Towards Building Open-source LM for Medical. **Github**: https://github.com/chaoyi-wu/PMC-LLaMA/tree/main
+- Efficient Training Methods:
+  - Quantization-Aware Training with LoRA adaptors (QLoRA) to optimize performance in low-precision environments (https://arxiv.org/pdf/2309.14717)
+  - SpinQuant: LLM Quantization with Learned Rotations (https://arxiv.org/pdf/2405.16406)
+  - Meta blog for Llama 3.2 1B/3B: https://ai.meta.com/blog/meta-llama-quantized-lightweight-models/
