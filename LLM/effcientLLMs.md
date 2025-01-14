@@ -35,3 +35,22 @@
 
 - White-box KD: parameters / logits of Teacher distilled to Student
 - Black-box KD: output of LLM Teacher distilled to Student
+
+
+# II. Efficient Pre-training
+
+#### Mixed Precision Training 
+#### Scaling Model
+#### Initialization Techniques
+#### Training Optimizers
+- Lion (EvoLved Sign Momentum): is more memory - efficient than Adam and more accurate than Adam too.
+![Lionresult](image/effcientLLMs/Lionresult.png)
+
+#### System Level Pre-Training Effciency Optimization
+
+# 3I. Efficient Fine-Tuning
+
+![Efficient Fine-Tuning](image/effcientLLMs/efficientfinetuning.png)
+
+#### Low-rank Adaption:
+- LoRA: Low-rank adaption
