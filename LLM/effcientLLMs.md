@@ -36,15 +36,18 @@
 - White-box KD: parameters / logits of Teacher distilled to Student
 - Black-box KD: output of LLM Teacher distilled to Student
 
-
 # II. Efficient Pre-training
 
-#### Mixed Precision Training 
+#### Mixed Precision Training
+
 #### Scaling Model
+
 #### Initialization Techniques
+
 #### Training Optimizers
+
 - Lion (EvoLved Sign Momentum): is more memory - efficient than Adam and more accurate than Adam too.
-![Lionresult](image/effcientLLMs/Lionresult.png)
+  ![Lionresult](image/effcientLLMs/Lionresult.png)
 
 #### System Level Pre-Training Effciency Optimization
 
@@ -52,5 +55,43 @@
 
 ![Efficient Fine-Tuning](image/effcientLLMs/efficientfinetuning.png)
 
+### Parameter-Efficient Fine-tuning
+
 #### Low-rank Adaption:
-- LoRA: Low-rank adaption
+
+- LoRA: Low-rank adaption:
+
+#### Prefix Tuning
+
+- Adding a series of trainable vectors to each layer in LLM that tailors to specified/downstream tasks
+
+#### Prompt Tuning
+
+- Incorporate trainable prompt token only at the input layer => it outperforms few-shot learning ???
+
+#### Adapter Tuning
+
+# 3I. Efficient Architecture Design
+
+#### Efficient Attention
+
+- Sharing based Attention. Accelerate attention computation during inference through KV heads sharing. Llama-2: optimizes the autoregressive decoding processing using multi-query attention (**Fast Transformer Decoding: One Write-Head is All You Need**) and group-query attention (**GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints**)
+
+
+#### Mixture of Experts (MoE)
+
+- Concept: segmenting a designated task into sub-tasks and then develop many specialized models (experts) who can do the subtask. Finally those experts collaborate to deliver a consolidated output.
+- For pre-train or fine-tune, MoE acquires a large of parameters managed efficiently for both performance and computation
+
+#### Transformer alternative Architectures
+
+- SSM models
+- Receptance Weighted Key Value
+
+# 4I. Data Centric Methods - Data Selection
+
+# 5I. LLM Framework
+
+- DeepSpeed by Microsoft: training + finetuning + serving LLM model
+- Megatron by Nvidia: training + finetuning + serving LLM
+- Nanotron by HuggingFace
