@@ -105,7 +105,6 @@ a policy \phi is optimized to maximize the expected reward as per the trained re
 
 - Some papers: **Preference ranking optimization for human alignment** - comparison and ranking of responses based on the teacher’s preferences.
 
-
 ## C. CONTEXT FOLLOWING
 
 - Utilize LLM to transfer the complex contexts such as few-shot demonstration, intricate instruction. retrieval-augmented information into smaller language models.
@@ -121,7 +120,6 @@ Prompting - Response pairs and then employing Supervised Fine Tuning (SFT) for m
 * High quality Instruction: UltraChat, UltraLLaMA
 * Improved Instruction: MUFFIN scale instruction according to the input by diversifying these tasks with various input facets.
 
-
 ### b. RAG Capbility
 
 **Purpose**
@@ -134,7 +132,6 @@ Prompting - Response pairs and then employing Supervised Fine Tuning (SFT) for m
 - *SAIL*:
 - *KARD*: distils the reasonales r from Teacher LLM in response to question x => r is used to train Student LLM and Reranker
 - *Self-RAG*: distill the adaption abilities from Teacher into a smaller LLM model
-
 
 ### c. Alignment
 
@@ -203,22 +200,38 @@ Tools:Toolformer: **Language Models Can Teach Themselves to Use Tools** (https:/
   - https://docs.nvidia.com/nim/large-language-models/latest/llama-stack.html
   - https://github.com/meta-llama/llama-stack
 
-### PMC-LlaMA:
+### Paper - "PMC-LlaMA"
 
 ##### Intros
+
 - Outperform chatGPT on medical-domain
 - Better than Med-Alpaca, Chat-Doctor, MedPALM-2
 - Use open-source to build LLM model
 
 ##### Knowledge dataset to fine-tune
+
 - 4.8M medical papers
 - 30K medical textbook
-=> a total of tokens: 202M
+  => a total of tokens: 202M
 
 ##### Instruction prompting for tuning
+
 - Question and Answer
 - Rationale for reasoning
 - Conversational dialogue
+
 ##### Model weights
+
 - LlaMA 13M
 
+
+### Paper - "Quantization-Aware Training with LoRA adaptors (QLoRA)"
+
+- What does it mean "degree of freedom of quantization" and "adaption"? => idea of QLoRA
+- Benefit: efficient fine-tuning by quantized LLM models into low-bit intergers + lightweight, finetuned model without the need for PTQ
+- Joint adaptation and quantization: achieve the goals of parameter efficient adaptation + computation efficient tuning + deployment
+
+##### LoRA - main idea
+
+- decompose the adapter weights into the multiplication for two low - rank metrices
+-

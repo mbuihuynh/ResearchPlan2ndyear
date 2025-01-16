@@ -1,0 +1,7 @@
+# essily finetuning and train LLMs 
+pip install unsloth
+pip install -U transformers accelerate
+# mlx - ecosystem for adapted Apple M-chip series.
+pip install mlx
+# TRL - Transformer Reinforcement Learning: Supervised Fine-Tuning (SFT), Proximal Policy Optimization (PPO), and Direct Preference Optimization (DPO)
+pip install trl
