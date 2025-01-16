@@ -181,11 +181,11 @@ Tools:Toolformer: **Language Models Can Teach Themselves to Use Tools** (https:/
 
 # II. APPLICATION
 
-### Medical LLM Application
+## Medical LLM Application
 
 - PMC-LLaMA: Towards Building Open-source LM for Medical (https://arxiv.org/pdf/2304.14454)
 
-### Product Requirement Development LLM Application
+## Product Requirement Development chatBOT LLM Application
 
 - Teacher: chatGPT/ Llama 70B (Vietnamese language)
 - Student: **LLama 3.2** 1B/3B/7B
@@ -202,3 +202,23 @@ Tools:Toolformer: **Language Models Can Teach Themselves to Use Tools** (https:/
   - Hugging face: https://huggingface.co/collections/meta-llama/llama-32-66f448ffc8c32f949b04c8cf
   - https://docs.nvidia.com/nim/large-language-models/latest/llama-stack.html
   - https://github.com/meta-llama/llama-stack
+
+### PMC-LlaMA:
+
+##### Intros
+- Outperform chatGPT on medical-domain
+- Better than Med-Alpaca, Chat-Doctor, MedPALM-2
+- Use open-source to build LLM model
+
+##### Knowledge dataset to fine-tune
+- 4.8M medical papers
+- 30K medical textbook
+=> a total of tokens: 202M
+
+##### Instruction prompting for tuning
+- Question and Answer
+- Rationale for reasoning
+- Conversational dialogue
+##### Model weights
+- LlaMA 13M
+
