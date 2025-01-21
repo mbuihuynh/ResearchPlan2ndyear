@@ -16,7 +16,7 @@ The paper link at
 - From Encoder-Decoder (T5): complex text generation problems
 
 *Limitations of RAG*
-- Hallucinations: incorrectly factual problem, non-sensical, misleading information.
+- Hallucinations: incorrectly factual problem, non-sensical, misleading information if retrieving the unnescessary knowledges => need to evaluate when incoperate the retrieved information with prior-knowledge
 
 # Retrieval - Augmented Large Langugage Models (RA-LLMs)
 
@@ -46,8 +46,47 @@ There are three components:
 - Database:
     - Option key-value: keys for similarity matching (likely sparse vectors for BM25 or dense embeddings from retrieval encoding); value mostly is raw-text.
 
-### Generation:
+### Generation
+- White box: parameter accessible generators
+    + Can access/concat parameters in/from Encoder/ Encoder-Decoder to enhance the generation accuracy and relevance.
+    + Example: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (https://arxiv.org/pdf/2005.11401)
+
+- Black box: parameter-inaccessible generator
+    + Can't access/alter the parameters, insteading feeding the input to models (GPT, Gemini, etc) and recieve the response
+    + Difficult to tune the closed LLM models with a small dataset
+    + Purpose: focus more to enhance the generation process by augmenting the inputs in a term of context prompting
+
 
 ### Augmentation: augmented at the layers of input / output / middle
 
+- Describe the technical process that integrates retrieveal and generation parts.
+- There are types of cates
 
+#### Input-Layer integration
+- A common way: integrate retrieved information/docs to original query and then jointly pass them/or demonstration to the generator => boosting the zero-shot ability of LLMs without delicate prompt engineering
+- *Limitation*: long retrieved document in the context prompting => solution: remove some tokens, run parallelly each retrieved with original question
+- Examples: RALM paper
+
+#### Output-Layer integration
+- Jointly integrate the retrieval and generation results.
+- Examples: kNN-LM interpolates two next-token distribution in inference: one by LM and other induced by the nearest neighbors from retrieval corpus
+- Examples: Improving language models via plug-and-play retrieval feedback (https://arxiv.org/pdf/2305.14002)
+
+#### Intermediate-Layer integration
+- Aka: a semi-parametric module to integrate the retrieved results + the internal layers of the generation models.
+- Examples: RETRO - Improving language models by retrieving from trillions of tokens (https://arxiv.org/abs/2112.04426)
+
+# Training RA-LLM
+- Train-free approach: insert the retrieved knowledge into prompting in the inference phase => retriever and generator is optmized for downstream tasks
+- Training-based approach: fine-tune the retreiver and generator with exploiting the external knowledge
+
+![RA-LLMtraining](image/RAG/RA-LLMtraining.png)
+
+#### Train-free approach
+- In-Context RALM (https://arxiv.org/pdf/2302.00083): In-Context Retrieval-Augmented Language Models
+- Retrieval-guided token generation methods: Generalization through Memorization: Nearest Neighbor Language Models (https://openreview.net/pdf?id=HklBjCEKvH)
+- #### Training-based approach
+- Looking at RA-LLMtraining.png
+
+# Application
+![Application](image/RAG/application.png)
