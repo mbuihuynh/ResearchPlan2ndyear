@@ -1,4 +1,6 @@
 """
+https://huggingface.co/blog/cfm-case-study
+
     1) Annotated data platform: Argilla
         - 
     2) Llama 3.1 series: as auto-generated based entity name label
