@@ -40,6 +40,9 @@ T5: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transf
 
 Problem: treating each problem in NLP as text-to-text task => Author proposed the framework as Text-to-Text Transfer Transformation.
 
-
-
 AlexaTM 20B: Few-shot Learning Using a Large-Scale Multilingual Seq2Seq Model
+
+### c. Decoder-only models
+
+Language Models are Few-Shot Learners (GPT-3)
+- Problems: (1) dataset labels for new tasks rather limit the applicability of language models + (2) scaled of training data vs. expressiveness of model vs narrowness of the training distribution + (3) human do not require large supervised datasets to learn most language tasks = means human to perform a new task with reasonable dataset.
