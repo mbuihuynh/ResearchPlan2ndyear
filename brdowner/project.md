@@ -94,6 +94,7 @@ Reference paper: FinNLP-FNP-LLMFinLegal-2025 Shared Task: Regulations Challenge 
 #### S116 ([from date]    -> [end date]): Pre-training | KB phase
 
 - Prepare datasets as the acquired KB pipeline under csv format
+  - pre_processing: https://github.com/NVIDIA/NeMo/blob/main/tutorials/llm/llama/pruning-distillation/01_data_preparation.ipynb
 - Basecode for knowledge distillation pretrain
 
 #### S117 ([from date]    -> [end date]): Post-training | Data Preparation

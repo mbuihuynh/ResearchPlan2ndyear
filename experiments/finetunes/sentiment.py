@@ -5,6 +5,7 @@
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline, TextStreamer
+from huggingface_hub import login
 
 
 def load_checkpoints(checkpoint):
@@ -30,7 +31,25 @@ def load_checkpoints(checkpoint):
     }
 
 def run():
-    pass
+
+    login(token=)
+
+    model_id = "meta-llama/Llama-3.2-3B-Instruct"
+    pipe = pipeline(
+        "text-generation",
+        model=model_id,
+        torch_dtype=torch.bfloat16,
+        device_map="auto",
+    )
+    messages = [
+        {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+        {"role": "user", "content": "Who are you?"},
+    ]
+    outputs = pipe(
+        messages,
+        max_new_tokens=256,
+    )
+    print(outputs[0]["generated_text"][-1])
 
 
 
@@ -38,6 +57,7 @@ def run():
 if __name__ == "__main__":
     checkpoint = "/Users/mai.bui/.llama/checkpoints/Llama3.2-3B"
 
-    dict_models = load_checkpoints(checkpoint)
+    # dict_models = load_checkpoints(checkpoint)
+    # print(dict_models['model'])
 
-    print(dict_models['model'])
+    run()
